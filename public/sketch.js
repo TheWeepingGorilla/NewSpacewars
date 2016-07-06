@@ -2,16 +2,17 @@
 
 let socket
 
-// Attaching p5 to window as a global var to facilitate class files
+// Exposing p5 globally as P$ for class files to use (minimal pollution)
 window.P$ = new p5(p => {
 
-  let c
+  // let ship
 
   p.setup = function () {
     p.createCanvas(p.windowWidth, p.windowHeight)
     p.background(51)
     socket = io.connect('http://localhost:3000')
     socket.on('mouse', newDrawing)
+    let ship = new Ship()
   }
 
   p.draw = function () {
