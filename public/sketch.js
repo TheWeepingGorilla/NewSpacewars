@@ -19,7 +19,12 @@ window.P$ = new p5(p => {
 	p.draw = function () {
 		p.background(0)
 		starfield.draw()
+		// add draw code here - ship draw will be objects draw
+		// p.push()
+		// p.translate(this.X, this.Y)
+		// p.rotate(this.angle)
 		ship.draw()
+		// p.pop()
 	}
 
 	p.mouseDragged = function() {
